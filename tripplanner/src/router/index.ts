@@ -1,5 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import Login from '@/views/Login.vue'
+import SignUp from '@/views/SignUp.vue'
+import StartPlan from '@/views/StartPlan.vue'
+import FilterPage from '@/views/FilterPage.vue'
+
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,7 +23,7 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue'),
     },
-    {
+     {
       path: '/login',
       name: 'login',
       component: Login,
@@ -25,8 +31,19 @@ const router = createRouter({
     {
       path: '/signup',
       name: 'signup',
-      component: Signup,
+      component: SignUp,
     },
+     {
+      path: '/startplan',
+      name: 'startplan',
+      component: StartPlan,
+    },
+      {
+      path: '/filterpage',
+      name: 'filterpage',
+      component: FilterPage,
+    },
+   
   ],
 })
 
