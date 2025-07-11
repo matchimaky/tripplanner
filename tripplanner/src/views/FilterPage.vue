@@ -46,14 +46,14 @@
               class="size-input"
               v-model.number="filterData.groupSize"
               min="1"
-              max="99"
+              max="20"
               readonly
             >
             <button 
               type="button"
               class="size-btn increase"
               @click="increaseGroupSize"
-              :disabled="filterData.groupSize >= 99"
+              :disabled="filterData.groupSize >= 20"
             >
               +
             </button>
@@ -113,13 +113,15 @@
       </div>
 
       <!-- Next Button -->
-      <button 
+     
+       <RouterLink to="planningnote"
+             type="button"
         class="next-btn"
-        @click="handleNext"
-        :disabled="!isFormValid"
-      >
-        Next
-      </button>
+        @click="handleSubmit"
+        :disabled="!isFormValid">
+           Next</RouterLink>
+
+            
     </div>
   </div>
 </template>
@@ -223,7 +225,7 @@ const decreaseGroupSize = (): void => {
   }
 }
 
-const handleNext = (): void => {
+const handleSubmit = (): void => {
   if (isFormValid.value) {
     const submitData: FilterSubmitData = {
       budget: filterData.budget,
@@ -238,9 +240,7 @@ const handleNext = (): void => {
   }
 }
 
-const handleProfile = (): void => {
-  emit('profile')
-}
+
 
 // Expose methods for parent components
 defineExpose({

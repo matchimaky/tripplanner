@@ -1,11 +1,24 @@
 {
-  "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    },
-    {
-      "path": "./tsconfig.app.json"
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": ["ESNext", "dom"],
+    "types": ["vite/client"], // Essential for Vite projects
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "noEmit": true, // Often true for frontend projects where Vite handles transpilation
+    "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "@/*": ["./src/*"] // Make sure this matches your project structure
     }
-  ]
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "references": [{ "path": "./tsconfig.node.json" }] // If you have a separate tsconfig for node
 }
